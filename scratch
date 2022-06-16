@@ -1,0 +1,106 @@
+def fg(a,b):
+    return range(a,b)
+
+
+a=int(input("nerden: "))
+b=int(input("nereye: "))
+
+for i in fg(a,b):
+    print(i)
+    if i == (b-1):
+        print(b)
+------------------
+sayı=60
+if sayı>50:
+    pass  #bunu kod satırım hata verdi ona sonra döneyim diyip kullanabilirim
+-----------------
+for i in range(5):
+    for j in range(4):
+       print(i,j) #0 ilk for'dan geliyo sonra alt blokta diğer döngü çalışıyo.
+       # sonra 1 geliyo ve sonra alt blok çalışıyo
+---------------------
+lst=[10, 99, 98, 85, 45, 59, 65, 66, 76, 12, 35, 13, 100, 80, 95]
+
+i=0
+while lst[i] != 100:
+    i += 1
+    if lst[i]==100:
+        print("there is a ", str(lst[i]), "at index no:", str(lst.index(lst[i])))
+
+i = 0
+while i < len(lst):
+    if lst[i] == 100:
+        print("There is a 100 at index no: " + str(i))
+    i = i+1
+----------------------------
+lst1=["Joe", "Sarah", "Mike", "Jess", "", "Matt", "", "Greg"]
+
+#Type your code here.
+
+def name_adder(list):
+    l=[]
+    i=0
+    while i<len(list):#son döngüde oluşan listeyi al diye bi şey yazılabilir mi?
+        if list[i]!="":
+            l.append(list[i])
+        i +=1
+    return l#The Python return keyword exits a function and
+    # instructs Python to continue executing
+    # the main program. The return keyword can send a value back to the main program
+
+print(name_adder(lst1))
+----------------
+import numpy as np
+
+np_arr = np.array( [ [1,2,3], [2,3,5], [10,11,12] ] )
+print(np_arr[2,0:2])
+print(np_arr[2])
+print(np_arr[2][0:2])
+--------------------
+import numpy as np
+
+np.random.seed(1)
+np_rand = np.random.random((3,3))
+
+np_sub_rand = np.copy(np_rand[0:2 ,1:3])
+print(np_sub_rand)
+
+np_sub_rand[1,0] = 1000
+
+print(np_sub_rand)
+
+print(np_rand)
+------------------------------------------------
+import statistics as st
+n = int(input())
+student_marks = {}
+for _ in range(n):
+    name, *line = input().split()
+    scores = list(map(float, line))
+    student_marks[name] = scores
+query_name = input()
+
+if query_name in student_marks:
+    a=st.fmean(student_marks[query_name])
+    print(format(a, '.2f'))
+#5.satır: name,line olsaydı girilen inputlardan ilki name'ye atancak,diğerli lineye atancaktı.ama girdiğim değerlerin sayısı
+# atanabilcek değişkenlerin sayısından fazla olduğu için hata veriridi.bu hatayı önlekemek için unpacking op. denen
+# * operatörünü kullanmış.bu, atanmayan değerlerin hepsini liste olarak depolayan değişken oluyo.
+#7.satır: sözlükte sozluk[name] ile "name" anahtarının değerini getiriyo.benim değerim liste olduğu için içinde depolanan kadar.
+#11.satır:fmean() fonksüyonu değerlerin aritmetik ortalamasını alan ve float olarak döndüren fonksiyon.statistic modülüyle kullanılıyo
+#12.satır:format, sayının kendisini değiştiriyo.round() donksiyonu ile sayıyı değiştirmeden,görüntülemek için kullanmam kullanışlı olur.
+------------------------------
+count = 5#bu zaten global değil mi? neden içeriye global count diye tanımlamam gerekiyo
+def some_method():
+    global count#bu yerel countu global olarak atıyo
+    count = count + 1
+    print(count)
+some_method()
+print(count)
+
+
+
+
+
+
+
