@@ -1,0 +1,52 @@
+class Car:
+    def __init__(self,color,year,model):#this is not called as function. if the def used in the class, it called method
+        #self is the first one that writing into init method.
+        self.color=color
+        self.year=year
+        self.model=model#for the variables that i defined, if it stay as varible, the user can vary the varibles for him/herself
+    number_wheels=4#for the most car have 4 whhels, i assigned outside the init func.
+    def setmodel(self,model):
+        self.__model=model# 2 alt çizgiyle set ediliyo değer
+        # self.__year =year
+        # self.__color =color
+    def germodel(self,model):
+        return self.__model
+    model=property(germodel,setmodel)#decorator(property) is a function that takes the other func. as input
+
+print(type(setmodel))
+car1=Car("green",1995,"9000")
+car2=Car("green",1995,"9000")
+#car1.color="blue" bu şekilde arabanın rengini classın içinden değiştiriyorum.bu şekilde bilgiyi saklamıyorum.
+#print(car1==car2) this is false because i didint understand why
+print(car2.number_wheels)
+# print(id(car2))#this gives the memory adress of vairble
+# print(id(car1))
+------------------------------------------------------------
+def outer():
+    print("outer func.")
+    def inner():
+        print("inner func")
+
+    inner()
+output=outer()
+print(output)#eğer print(outer) yazarsam outer fonk. hafıza adresini yazdırcak
+#ayrıca return olmadığı için None çktısı veriyo.
+-------------------------------------------
+class Car:
+    def __init__(self,color,year,model):#this is not called as function. if the def used in the class, it called method
+        #self is the first one that writing into init method.
+        self._color=color #IMPORTANT! _ makes the variable private that cannot reach from outside the class
+        self.year=year
+        self.model=model#for the variables that i defined, if it stay as varible, the user can vary the varibles for him/herself
+    number_wheels=4#for the most car have 4 whhels, i assigned outside the init func.
+    def setmodel(self,model):
+        self.__model=model# 2 alt çizgiyle set ediliyo değer
+        # self.__year =year  denedim bu ikisini
+        # self.__color =color
+    def germodel(self,model):
+        return self.__model
+
+
+    model=property(germodel,setmodel)#decorator(property) is a function that takes the other func. as input
+#print(type(Car))  class type çıktısı var. ne alaka?
+isinstance(Car,type)
